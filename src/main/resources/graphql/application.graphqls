@@ -7,6 +7,7 @@ type Application {
 type Query {
     findAllApplications: [Application]!
     countApplications: Long!
+    findById(id:ID):[Application]!
 }
 type Mutation {
     newApplication(name: String!, owner: String!, description: String!) : Application!

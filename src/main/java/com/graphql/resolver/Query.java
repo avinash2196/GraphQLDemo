@@ -6,6 +6,8 @@ import com.graphql.repository.ApplicationRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+
 @Component
 @AllArgsConstructor
 public class Query implements GraphQLQueryResolver {
@@ -18,5 +20,10 @@ public class Query implements GraphQLQueryResolver {
     public long countApplications() {
         return applicationRepository.count();
     }
-
+    public Iterable<Application> findById(Long id) {
+        if(id==null)
+            return applicationRepository.findAll();
+        else
+            return Arrays.asList(applicationRepository.findById(id).get());
+    }
 }
