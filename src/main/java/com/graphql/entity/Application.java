@@ -1,20 +1,19 @@
 package com.graphql.entity;
 
+import com.azure.spring.data.cosmos.core.mapping.Container;
+import com.azure.spring.data.cosmos.core.mapping.GeneratedValue;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
 
-@Entity
+@Container(containerName = "GrpahQL")
 @Data
 @RequiredArgsConstructor
 public class Application {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "application_id")
-    private Long id;
-    @Column(name = "app_name", nullable = false)
+    @GeneratedValue
+    private String id;
     private String name;
-    @Column(length = 2000)
     private String description;
     private String owner;
 
