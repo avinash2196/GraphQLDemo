@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 public class GraphqlController {
 
     @QueryMapping
-    public Application findById(@Argument @NotNull String id) {
+    public Application findById(@Argument @NotNull(message = "Id cant be Null") String id) {
         System.out.println(id);
         return Application.getById(id);
     }

@@ -5,5 +5,5 @@ type Application {
     description: String
 }
 type Query {
-      findById(id:String!):Application
+      findById(id:String):Application
 }
