@@ -1,0 +1,9 @@
+type Application {
+    id: String
+    name: String
+    owner: String
+    description: String
+}
+type Query {
+      findById(id:String!):Application
+}
