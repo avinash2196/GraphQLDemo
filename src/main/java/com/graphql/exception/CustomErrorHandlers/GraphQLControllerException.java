@@ -21,7 +21,7 @@ public class GraphQLControllerException implements DataFetcherExceptionResolver 
 
         if (exception instanceof ConstraintViolationException) {
             return Mono.just(generateConstraintViolationMessage((ConstraintViolationException) exception
-                    ));
+            ));
         }
 
 

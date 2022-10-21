@@ -6,10 +6,26 @@ import java.util.List;
 
 public class Application {
 
+    private static List<Application> applications = Arrays.asList(
+            new Application("app-1", "app1", "owner1", "app-1"),
+            new Application("app-2", "app2", "owner2", "app-2"),
+            new Application("app-3", "app3", "owner3", "app-3")
+    );
     private String id;
     private String name;
     private String description;
     private String owner;
+
+    public Application(String id, String name, String owner, String description) {
+        this.id = id;
+        this.name = name;
+        this.owner = owner;
+        this.description = description;
+    }
+
+    public static Application getById(String id) {
+        return applications.stream().filter(application -> application.getId().equals(id)).findFirst().orElse(applications.get(0));
+    }
 
     public String getId() {
         return id;
@@ -41,21 +57,5 @@ public class Application {
 
     public void setOwner(String owner) {
         this.owner = owner;
-    }
-
-    public Application(String id, String name, String owner, String description) {
-        this.id=id;
-        this.name = name;
-        this.owner = owner;
-        this.description = description;
-    }
-    private static List<Application> applications = Arrays.asList(
-            new Application("book-1", "Harry Potter and the Philosopher's Stone", "223", "author-1"),
-            new Application("book-2", "Moby Dick", "635", "author-2"),
-            new Application("book-3", "Interview with the vampire", "371", "author-3")
-    );
-
-    public static Application getById(String id) {
-        return applications.stream().filter(application -> application.getId().equals(id)).findFirst().orElse(applications.get(0));
     }
 }
